@@ -1,0 +1,21 @@
+<div>
+  <div data-controller="totalcredits" data-action="credits:deduct@document->totalcredits#update credits:add@document->totalcredits#update">
+    <p>Kamu ada <span data-totalcredits-target="total">150</span> credits sahaja</p>
+  <div>
+
+  <% @products.each do |p| %>
+  <div class="card-product mb-4 d-flex justify-content-between" data-controller="credits">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <div class="card-product-infos">
+      <h2><%= p.name %></h2>
+      <p><%= p.description %></p>
+      <p><span data-credits-target="cost"><%= p.cost %></span> credits</p>
+    </div>
+    <div class="boxcounter d-flex flex-row" data-controller="counter">
+      <div class="decrement mx-2" data-action="click->counter#decrement click->credits#add"><i class="fa-solid fa-minus"></i></div>
+      <div class="value" data-counter-target="value">0</div>
+      <div class="increment mx-2" data-action="click->counter#increment click->credits#deduct"><i class="fa-solid fa-plus"></i></div>
+    </div>
+  </div>
+  <% end %>
+</div>

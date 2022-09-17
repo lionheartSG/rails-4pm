@@ -4,5 +4,14 @@
 
 import { application } from "./application"
 
+import CounterController from "./counter_controller"
+application.register("counter", CounterController)
+
+import CreditsController from "./credits_controller"
+application.register("credits", CreditsController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import TotalcreditsController from "./totalcredits_controller"
+application.register("totalcredits", TotalcreditsController)
