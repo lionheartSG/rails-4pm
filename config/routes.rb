@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "users#index"
 
-  resources :products
+  resources :products do
+    resources :cart_items, only: %i[new create]
+  end
 end
