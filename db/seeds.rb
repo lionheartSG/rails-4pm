@@ -257,3 +257,11 @@ Product.create(
   category: "Cleaning Essentials",
   description: "3 pcs"
 )
+
+# require "csv"
+
+# filepath = "./users.csv"
+
+# CSV.foreach(filepath, headers: :first_row) do |row|
+#   User.create(name: row['name'], address: row['address'], email: row['email'], contact: row['contact'])
+# end
