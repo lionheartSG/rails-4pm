@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  root "products#index"
-
-  resources :products
+  root to: "pages#home"
+  get "edit", to: "pages#edit"
+  get "new", to: "pages#new"
+  get "create", to: "pages#create"
+  get "confirmed", to: "pages#confirmed"
 end
