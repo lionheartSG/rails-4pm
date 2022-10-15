@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def home
   end
 
@@ -9,10 +11,12 @@ class PagesController < ApplicationController
       # else
         # @user goes back to the home page
         # unprocessable entity
-    
+
 
   end
 
   def new
   end
+
+  
 end
