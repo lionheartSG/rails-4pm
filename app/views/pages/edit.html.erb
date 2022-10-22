@@ -2,7 +2,7 @@
 
 <%= simple_form_for @user do |f| %>
   <%= f.input :name, required: false %>
-  <%= f.input :address,  %>
+  <%= f.input :address, required: false %>
   <%= f.input :phone_number, placeholder: '1234 5678' %>
   <%= f.input :email, placeholder: 'user@domain.com' %>
   <%= f.button :submit %>
