@@ -1,0 +1,14 @@
+<h1>Please confirm your details</h1>
+
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name, required: false %>
+  <%= f.input :address, required: false %>
+  <%= f.input :phone_number, placeholder: '1234 5678' %>
+  <%= f.input :email, placeholder: 'user@domain.com' %>
+  <%= f.button :submit %>
+<% end %>
+
+<div class="footer">
+  <p>Help?</p>
+  <p>Contact Reza 8198 0581</p>
+</div>
