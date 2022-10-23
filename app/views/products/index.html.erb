@@ -1,10 +1,11 @@
-<div>
+<div data-controller="cartcollator">
   <div data-controller="totalcredits" data-action="counter:increment@document->totalcredits#update counter:decrement@document->totalcredits#update">
     <p>Kamu ada <span data-totalcredits-target="total">150</span> credits sahaja</p>
+    <button data-action="click->cartcollator#collate">Submit</button>
   <div>
 
   <% @products.each do |p| %>
-  <div class="card-product mb-4 d-flex justify-content-between" data-controller="counter">
+  <div class="card-product mb-4 d-flex justify-content-between" id="card-info" data-controller="counter">
     <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
     <div class="card-product-infos">
       <h2><%= p.name %></h2>
@@ -13,7 +14,7 @@
     </div>
     <div class="boxcounter d-flex flex-row">
       <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-minus"></i></div>
-      <div class="value" data-counter-target="value">0</div>
+      <div class="value" data-counter-target="value" data-id="<%=p.id%>">0</div>
       <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-plus"></i></div>
     </div>
   </div>

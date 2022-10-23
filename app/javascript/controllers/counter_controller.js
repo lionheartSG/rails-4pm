@@ -14,7 +14,7 @@ export default class extends Controller {
       return
     } else {
       counter++
-      this.valueTarget.innerText= counter
+      this.valueTarget.innerText = counter
       let cost = this.costTarget.innerText
       currentCredit = currentCredit - parseFloat(cost)
       this.dispatch("increment", { detail: { content: currentCredit}})
