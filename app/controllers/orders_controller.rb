@@ -1,37 +1,14 @@
 class OrdersController < ApplicationController
-<<<<<<< HEAD
-  skip_before_action :verify_authenticity_token
-  skip_before_action :authenticate_user!
 
-  def index
-    @order = Order.find(1)
-  end
 
   def create
-    @order = Order.new(order_params)
-    @order.save
-    if @order.save == true
-      redirect_to product_path(@product)
-=======
-
-  def create
-    @order = Order.new(order_params)
-    @report.user = current_user
-    if @report.save
-      redirect_to root_path
->>>>>>> master
-    else
-      render :new, status: :unprocessable_entity
+    information = request.raw_post
+    data_parsed = JSON.parse(information)
+    data_parsed.each do |data|
+      CartItem.create(order_id: 1, product_id: data[0]['id'].to_i, quantity: data[0]['quantity'].to_i) if data[0]['quantity'].to_i > 0
     end
   end
 
-<<<<<<< HEAD
-  private
-
-  def order_params
-    params.require(:order).permit(:id, :quantity)
-  end
-=======
   def confirm!
   end
 
@@ -48,5 +25,4 @@ class OrdersController < ApplicationController
   #     variants_attributes: [ :id, :name, :price, :_destroy ]
   #   )
   # end
->>>>>>> master
 end

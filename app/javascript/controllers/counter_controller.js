@@ -23,15 +23,23 @@ export default class extends Controller {
       let productId = this.valueTarget.dataset.id
       currentCredit = currentCredit - parseFloat(cost)
       this.dispatch("increment", { detail: { content: currentCredit}})
-      const basketDiv = document.querySelector(".basket-tables");
+
+      const element = document.querySelector(`[data-id="list-${productId}"]`)
+
+      if (element) {
+        const number = element.querySelector('.number')
+        number.innerText = counter
+      } else {
+      const basketDiv = document.querySelector(".basket-tables-insert");
       const basketTag = `<div class="basket-tables" data-id="list-${productId}">
                     <p class="counter">${idCounter}</p>
                     <p class="item">${itemName}</p>
                     <p class="cost">${cost}</p>
                     <p class="number">${counter}</p>
                   </div>`
-      basketDiv.insertAdjacentHTML("afterend", basketTag)
+      basketDiv.insertAdjacentHTML("beforeend", basketTag)
       idCounter = idCounter + 1
+    }
     }
   }
 
@@ -42,15 +50,25 @@ export default class extends Controller {
     } else {
       counter--
       this.valueTarget.innerText= counter
-      let product = this.valueTarget.dataset.id
+      let productId = this.valueTarget.dataset.id
 
       let cost = this.costTarget.innerText
       currentCredit = currentCredit + parseFloat(cost)
       this.dispatch("decrement", { detail: { content: currentCredit}})
 
-      const element = document.querySelector(`[data-id="list-${product}"]`)
-      element.remove()
-      idCounter = idCounter - 1
+      const element = document.querySelector(`[data-id="list-${productId}"]`)
+
+      if (element) {
+        const number = element.querySelector('.number')
+        number.innerText = counter
+        if (counter === 0){
+          element.remove()
+          idCounter = idCounter - 1
+        }
+      } else {
+        element.remove()
+        idCounter = idCounter - 1
+      }
     }
   }
 }

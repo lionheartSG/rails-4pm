@@ -26,13 +26,21 @@ export default class extends Controller {
 
       // console.log(JSON.stringify(orders))
 
-      fetch("/cart_items", {
+      fetch("/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
         body: JSON.stringify(orders)
       })
+        .then((response) => response)
+        .then((data) => {
+          console.log('Success:', data)
+          window.location ="./confirmed?id=1" //interpolate params here
+        })
+        .catch((error) => {
+          console.error('Error:', error)
+        })
     }, 1000);
   }
 }

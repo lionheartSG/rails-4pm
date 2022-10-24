@@ -2,8 +2,11 @@
 
 <div class="container">
   <h2>Confirmed Order: </h2>
+  <% @order.cart_items.each do |cart| %>
+  <p><%= cart.product.name %></p>
+  <p><%= cart.quantity %></p>
+  <% end %>
 </div>
-
 
 <div class="container">
   <h2>Details</h2>

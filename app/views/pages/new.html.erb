@@ -55,7 +55,7 @@
                 </div>
                     <% @products.each do |product| %>
                   <% if product.category == "Hari Raya Preparation" %>
-                    <div class="staples-header" data-controller="counter">
+                    <div class="staples-header" data-id="<%=product.id%>" data-controller="counter">
                       <p><%= "Icon"%></p>
                       <p class="item" data-counter-target="name"><%= product.name%></p>
                       <p data-counter-target="cost"><%= product.cost%></p>
@@ -83,13 +83,13 @@
                   <p>Selection</p>
                 </div>
                 <% @products.each do |product| %>
-                  <% if product.category == "Hari Raya Preparation" %>
+                  <% if product.category == "Cleaning Essentials" %>
                     <div class="staples-header" data-id="<%=product.id%>" data-controller="counter">
                       <p><%= "Icon"%></p>
                       <p class="item" data-counter-target="name"><%= product.name%></p>
                       <p data-counter-target="cost"><%= product.cost%></p>
                       <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
-                      <div class="value" data-counter-target="value">0</div>
+                      <div class="value" data-counter-target="value" data-id="<%=product.id%>">0</div>
                       <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right"></i></div>
                     </div>
                     <% end %>
