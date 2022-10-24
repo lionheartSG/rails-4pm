@@ -8,8 +8,6 @@ export default class extends Controller {
     console.log("hello from cartcollator")
   }
 
-
-
   collate(e) {
     setTimeout(() => {
       e.preventDefault()

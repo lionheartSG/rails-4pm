@@ -12,11 +12,10 @@ class PagesController < ApplicationController
         # @user goes back to the home page
         # unprocessable entity
 
-
   end
 
   def new
+    @products = Product.all
   end
 
-  
 end
