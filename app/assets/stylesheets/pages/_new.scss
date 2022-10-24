@@ -1,0 +1,155 @@
+.new-body {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.left-body {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.right-body {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.new-note {
+  width: 400px;
+  margin-bottom: 16px;
+  padding: 16px;
+  background-color: #114546;
+  color: #EAE2E2;
+  border-radius: 8px;
+  p {
+    font-weight: 400;
+  }
+  h3 {
+    font-weight: 600;
+  }
+}
+
+.new-staples {
+  border: black ;
+  width: 400px;
+  margin-bottom: 72px;
+}
+
+.new-baskets {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: #112A46;
+  border-radius: 8px;
+  margin-bottom: 16px;
+
+  h3 {
+    font-weight: 600;
+    color: #F09663;
+  }
+
+  p {
+    color: white;
+    text-align: center;
+  }
+
+  .basket-tables {
+    display: flex;
+    justify-content: space-between;
+
+    .item {
+    width: 100px
+    }
+
+    .cost {
+      width: 100px
+      }
+    .number {
+      width: 100px;
+    }
+  }
+
+  .basket-note {
+    width: 250px;
+    align-self: center;
+  }
+}
+
+.new-reminder {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-bottom: 16px;
+  padding: 16px;
+  background-color: #114546;
+  color: #EAE2E2;
+  border-radius: 8px;
+  p {
+    font-weight: 400;
+  }
+  h3 {
+    font-weight: 600;
+  }
+  h4 {
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+.new-footer {
+  width: 400px;
+  p {
+    text-align: center;
+  }
+}
+
+.staples-header{
+  display: flex;
+  justify-content: space-between;
+  p {
+    display: flex;
+    width: 70px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .item {
+    flex-grow: 1
+  }
+}
+
+.accordion-header{
+  background-color: #F09663;
+}
+
+.accordion-item {
+  border: none;
+}
+
+.accordion-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.accordion-button{
+  font-weight: 600;
+  color: #F09663;
+  background-color: #112A46;
+}
+
+.accordion-button:not(.collapsed) {
+  font-weight: 600;
+  color: #F09663;
+  background-color: #112A46;
+}
+
+.accordion-item:first-of-type .accordion-button {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}

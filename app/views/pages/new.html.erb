@@ -1,6 +1,136 @@
-<h1>New Page</h1>
-
-<div class="footer">
-  <p>Help?</p>
-  <p>Contact Reza 8198 0581</p>
+<div class="new-body"  data-controller="cartcollator">
+  <div class="left-body">
+    <div class="new-note">
+      <h3>Note:</h3>
+      <ol>
+        <li>Any unused remaining credits will be deleted and unclaimable.</li>
+        <li>Items selected are subject to availability. Alternative items of similar value may be provided instead.</li>
+        <li>You can select up to a maximum of 3 for each item.</li>
+      </ol>
+    </div>
+    <div class="new-staples">
+        <div class="accordion" id="accordion-staples" data-action="counter:increment@document->totalcredits#update counter:decrement@document->totalcredits#update">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Staples
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <div class="staples-header">
+                  <p></p>
+                  <p class="item">Item</p>
+                  <p>Credit</p>
+                  <p>Selection</p>
+                </div>
+                  <% @products.each do |product| %>
+                  <% if product.category == "Staples" %>
+                    <div class="staples-header" data-controller="counter" data-counter-target="basket">
+                      <p><%= "Icon"%></p>
+                      <p class="item" data-counter-target="name"><%= product.name%></p>
+                      <p data-counter-target="cost"><%= product.cost%></p>
+                      <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
+                      <div class="value" data-counter-target="value" data-id="<%=product.id%>">0</div>
+                      <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right"></i></div>
+                    </div>
+                    <% end %>
+                  <% end %>
+                </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Hari Raya Goodies
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <div class="staples-header">
+                  <p></p>
+                  <p class="item">Item</p>
+                  <p>Credit</p>
+                  <p>Selection</p>
+                </div>
+                    <% @products.each do |product| %>
+                  <% if product.category == "Hari Raya Preparation" %>
+                    <div class="staples-header" data-id="<%=product.id%>" data-controller="counter">
+                      <p><%= "Icon"%></p>
+                      <p class="item" data-counter-target="name"><%= product.name%></p>
+                      <p data-counter-target="cost"><%= product.cost%></p>
+                      <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
+                      <div class="value" data-counter-target="value" data-id="<%=product.id%>">0</div>
+                      <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right"></i></div>
+                    </div>
+                    <% end %>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Cleaning Essentials
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <div class="staples-header">
+                  <p></p>
+                  <p class="item">Item</p>
+                  <p>Credit</p>
+                  <p>Selection</p>
+                </div>
+                <% @products.each do |product| %>
+                  <% if product.category == "Cleaning Essentials" %>
+                    <div class="staples-header" data-id="<%=product.id%>" data-controller="counter">
+                      <p><%= "Icon"%></p>
+                      <p class="item" data-counter-target="name"><%= product.name%></p>
+                      <p data-counter-target="cost"><%= product.cost%></p>
+                      <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
+                      <div class="value" data-counter-target="value" data-id="<%=product.id%>">0</div>
+                      <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right"></i></div>
+                    </div>
+                    <% end %>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="right-body" data-controller="totalcredits" data-action="counter:increment@document->totalcredits#update counter:decrement@document->totalcredits#update" data-controller="counter">
+    <div class="new-baskets">
+      <h3>Your basket:</h3>
+      <br>
+      <div class="basket-tables" >
+        <p class="item-number">No.</p>
+        <p class="item">Item</p>
+        <p class="cost">Credit</p>
+        <p class="number">Selection</p>
+      </div>
+      <div class="basket-tables-insert" >
+      </div>
+      <h3>Remaining Credits:<span data-totalcredits-target="total">150</span></h3>
+      <div class="basket-note">
+        <p>Any unused remaining credits will be deleted and unclaimable</p>
+      </div>
+    </div>
+    <div class="new-reminder">
+      <h3>Reminder:</h3>
+        <ol>
+          <li>Items selected are subject to availability. Alternative items of similar value may be provided instead.</li>
+          <li>Delivery date will be on DD MM YY (between 10am - 6pm). Unfortunately, no specific timing will be given.</li>
+          <li>Please ensure that someone is home to receive the items.</li>
+        </ol>
+      <h4>No edits can be made after clicking Submit</h4>
+      <button class="common-button" data-action="click->cartcollator#collate">Submit</button>
+    </div>
+    <div class="new-footer">
+      <p>Need Help?</p>
+      <p>Contact via Whatsapp <br>
+        ROW Admin 83003852</p>
+    </div>
+  </div>
 </div>
