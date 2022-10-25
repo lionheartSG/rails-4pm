@@ -299,4 +299,4 @@ Product.create(
 
 # CSV.foreach(filepath, headers: :first_row) do |row|
 #   User.create(name: row['name'], address: row['address'], email: row['email'], contact: row['contact'])
-# en
+# end

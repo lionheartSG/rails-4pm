@@ -27,7 +27,7 @@
                   <% @products.each do |product| %>
                   <% if product.category == "Staples" %>
                     <div class="staples-header" data-controller="counter" data-counter-target="basket">
-                      <p><%= "Icon" %></p>
+                      <p><%= image_tag product.path, width: 40 %></p>
                       <p class="item" data-counter-target="name"><%= product.name%></p>
                       <p data-counter-target="cost"><%= product.cost%></p>
                       <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
@@ -56,7 +56,7 @@
                     <% @products.each do |product| %>
                   <% if product.category == "Hari Raya Preparation" %>
                     <div class="staples-header" data-id="<%=product.id%>" data-controller="counter">
-                      <p><%= "Icon"%></p>
+                      <p><%= image_tag product.path, width: 40 %></p>
                       <p class="item" data-counter-target="name"><%= product.name%></p>
                       <p data-counter-target="cost"><%= product.cost%></p>
                       <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
@@ -85,7 +85,7 @@
                 <% @products.each do |product| %>
                   <% if product.category == "Cleaning Essentials" %>
                     <div class="staples-header" data-id="<%=product.id%>" data-controller="counter">
-                      <p><%= "Icon"%></p>
+                      <p><%= image_tag product.path, width: 40 %></p>
                       <p class="item" data-counter-target="name"><%= product.name%></p>
                       <p data-counter-target="cost"><%= product.cost%></p>
                       <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
