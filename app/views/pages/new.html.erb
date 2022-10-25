@@ -27,7 +27,7 @@
                   <% @products.each do |product| %>
                   <% if product.category == "Staples" %>
                     <div class="staples-header" data-controller="counter" data-counter-target="basket">
-                      <p><%= "Icon"%></p>
+                      <p><%= "Icon" %></p>
                       <p class="item" data-counter-target="name"><%= product.name%></p>
                       <p data-counter-target="cost"><%= product.cost%></p>
                       <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
