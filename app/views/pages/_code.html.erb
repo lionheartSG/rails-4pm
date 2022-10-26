@@ -1,3 +1,4 @@
-<%= simple_form_for :user, url: "/edit", method: :get do |f| %>
-  <%= f.input :encrypted_password %>
+<%= simple_form_for :pages, url: edit_path, method: :get do |f| %>
+  <%= f.input :uniquecode, required: true %>
+  <%= f.submit "Log In" %>
 <% end %>

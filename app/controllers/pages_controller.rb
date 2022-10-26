@@ -1,11 +1,10 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token
 
   def home
   end
 
   def new
+    raise
     @products = Product.all
     @cart = CartItem.new
   end
@@ -24,13 +23,18 @@ class PagesController < ApplicationController
   end
 
   def edit
-    # after log in
-      # if the @user == uniquecode
-        # render the edit page
-      # else
-        # @user goes back to the home page
-        # unprocessable entity
+    if params[:pages][:uniquecode].empty?
+      redirect_to root_path
+    else
+      @user = User.find_by(uniquecode: params[:pages][:uniquecode])
+    end
+  end
 
+  def update
+    # update user based on new params
+    # if successful, redirect to new_path(user)
+    user = User.find(params[:user][:id])
+    redirect_to new_path(code: user.uniquecode)
   end
 
   private

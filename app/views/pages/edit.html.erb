@@ -1,12 +1,10 @@
 <h1>Please confirm your details</h1>
 
-<%= simple_form_for @user do |f| %>
-  <%= f.input :name, required: false %>
-  <%= f.input :address, required: false %>
-  <%= f.input :phone_number, placeholder: '1234 5678' %>
-  <%= f.input :email, placeholder: 'user@domain.com' %>
+<%= simple_form_for @user, url: update_path, method: :post do |f| %>
+  <%= f.input :email, required: true %>
+  <%= f.hidden_field :id, value: @user.id %>
   <%= f.button :submit %>
-<% end %>
+  <% end %>
 
 <div class="footer">
   <p>Help?</p>
