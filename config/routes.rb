@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   get "edit", to: "pages#edit"
+  post "update", to: "pages#update"
   get "new", to: "pages#new"
   post "create", to: "pages#create"
   get "confirmed", to: "pages#confirmed"
