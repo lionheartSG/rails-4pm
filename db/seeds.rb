@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 puts 'Cleaning up database'
 Product.destroy_all
+User.destroy_all
 
 puts 'Seeding database with products'
 Product.create(
@@ -291,6 +292,19 @@ Product.create(
   category: "Cleaning Essentials",
   description: "3 pcs",
   path: "toothbrush.png"
+)
+
+puts 'Seeding database with users'
+
+User.create(
+  name: "Fairul Izwan",
+  block: "140",
+  street: "Rivervale Street",
+  unit: "#07-774",
+  postal: "540140",
+  handphone: 97269434,
+  email_address: "izwanrul@gmail.com",
+  uniquecode: "123abc"
 )
 
 # require "csv"

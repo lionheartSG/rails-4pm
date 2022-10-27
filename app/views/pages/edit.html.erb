@@ -1,7 +1,13 @@
 <h1>Please confirm your details</h1>
 
 <%= simple_form_for @user, url: update_path, method: :post do |f| %>
-  <%= f.input :email, required: true %>
+  <%= f.input :name, required: true %>
+  <%= f.input :block, required: true %>
+  <%= f.input :street, required: true %>
+  <%= f.input :unit, required: true %>
+  <%= f.input :postal, required: true %>
+  <%= f.input :handphone, required: true %>
+  <%= f.input :email_address, required: true %>
   <%= f.hidden_field :id, value: @user.id %>
   <%= f.button :submit %>
   <% end %>
