@@ -3,6 +3,11 @@ class PagesController < ApplicationController
   def home
   end
 
+  def edit
+    @user = User.find_by(uniquecode: params[:pages][:uniquecode])
+    redirect_to root_path, flash: { notice: "Invalid code!" } if @user.nil?
+  end
+
   def new
     @products = Product.all
     @cart = CartItem.new
@@ -19,14 +24,6 @@ class PagesController < ApplicationController
 
   def confirmed
     @order = Order.find(params[:id])
-  end
-
-  def edit
-    if params[:pages][:uniquecode].empty?
-      redirect_to root_path
-    else
-      @user = User.find_by(uniquecode: params[:pages][:uniquecode])
-    end
   end
 
   def update
