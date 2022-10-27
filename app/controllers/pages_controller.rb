@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   end
 
   def new
-    raise
     @products = Product.all
     @cart = CartItem.new
   end
