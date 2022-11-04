@@ -8,12 +8,29 @@ class PagesController < ApplicationController
     redirect_to root_path, flash: { notice: "Invalid code!" } if @user.nil?
   end
 
+  def update
+    # update user based on new params
+    # if successful, redirect to new_path(user)
+    # user = User.find(params[:user][:id])
+    # redirect_to new_path(code: user.uniquecode)
+    @user = User.find(params[:user][:id])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to new_path(code: user.uniquecode)
+    else
+      redirect_to root_path, flash: { notice: "Invalid code!" } if @user.nil?
+    end
+  end
+
   def new
+    session[:user_id] = @user.id
     @products = Product.all
     @cart = CartItem.new
+
   end
 
   def create
+    @user = User.new(user_params)
     information = request.raw_post
     data_parsed = JSON.parse(information)
     data_parsed.each do |data|
@@ -24,13 +41,6 @@ class PagesController < ApplicationController
 
   def confirmed
     @order = Order.find(params[:id])
-  end
-
-  def update
-    # update user based on new params
-    # if successful, redirect to new_path(user)
-    user = User.find(params[:user][:id])
-    redirect_to new_path(code: user.uniquecode)
   end
 
   private
