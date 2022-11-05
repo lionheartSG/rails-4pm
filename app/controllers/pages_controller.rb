@@ -9,8 +9,11 @@ class PagesController < ApplicationController
       redirect_to root_path
     else
       @user = User.find_by(uniquecode: params[:pages][:uniquecode])
-      redirect_to root_path, flash: { notice: "Invalid code!" } if @user.nil?
-      session[:user_id] = @user.id
+      if @user
+        session[:user_id] = @user.id
+      else
+        redirect_to root_path, flash: { notice: "Invalid code!" }
+      end
     end
   end
 
