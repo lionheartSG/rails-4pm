@@ -9,34 +9,33 @@ export default class extends Controller {
   }
 
   collate(e) {
-    setTimeout(() => {
-      e.preventDefault()
+    // prevent default before doing anything else
+    e.preventDefault()
 
+    setTimeout(() => {
       const allInCart = document.querySelectorAll(".value")
       // console.log(allInCart)
       // console.log(allInCart[2].innerText)
       // console.log(allInCart[2].dataset.id)
-      allInCart.forEach(function (cart) {
-        let newEntry = {
+
+      orders = Array.from(allInCart).map(cart => ({
           id: cart.dataset.id,
           quantity: cart.innerText
-        }
-        orders.push([newEntry])
-      })
+        })).filter(cartItem => cartItem.quantity > 0)
 
-      // console.log(JSON.stringify(orders))
+        console.log({ cart_items: orders });
 
       fetch("/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify(orders)
+        body: JSON.stringify({ cart_items: orders })
       })
         .then((response) => response)
         .then((data) => {
           console.log('Success:', data)
-          window.location ="./confirmed?id=1" //interpolate params here
+          window.location ="./confirmed"
         })
         .catch((error) => {
           console.error('Error:', error)

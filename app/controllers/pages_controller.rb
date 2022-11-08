@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_action :find_current_user, only: %i[update new create confirmed]
+  skip_before_action :verify_authenticity_token
 
   def home
   end
@@ -34,16 +35,24 @@ class PagesController < ApplicationController
   end
 
   def create
-    information = request.raw_post
-    data_parsed = JSON.parse(information)
-    data_parsed.each do |data|
-      CartItem.create(order_id: @user.order, product_id: data[0]['id'].to_i, quantity: data[0]['quantity'].to_i) if data[0]['quantity'].to_i > 0
+    cart_item_params.each do |data|
+      CartItem.create(order: @user.order, product: Product.find(data['id'].to_i), quantity: data['quantity'].to_i) if data['quantity'].to_i > 0
     end
-    redirect_to confirmed_path
+
+    # information = request.raw_post
+    # data_parsed = JSON.parse(information)
+    # data_parsed.each do |data|
+    #   CartItem.create(order_id: @user.order, product_id: data[0]['id'].to_i, quantity: data[0]['quantity'].to_i) if data[0]['quantity'].to_i > 0
+    # end
+
+    respond_to do |f|
+      f.html
+      f.json
+    end
   end
 
   def confirmed
-    @order = Order.find(params[:id])
+    @order = @user.order
   end
 
   private
@@ -54,6 +63,10 @@ class PagesController < ApplicationController
     else
       @user = User.find(session[:user_id])
     end
+  end
+
+  def cart_item_params
+    params.require(:cart_items)
   end
 
   def order_params
