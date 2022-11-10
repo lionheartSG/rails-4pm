@@ -31,7 +31,7 @@
                       <p class="item" data-counter-target="name"><%= product.name%></p>
                       <p data-counter-target="cost"><%= product.cost%></p>
                       <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
-                      <div class="value" data-counter-target="value" data-id="<%=product.id%>">0</div>
+                      <div class="value" data-counter-target="value" data-id="<%=product.id%>"><%= @existing[product.name] || 0 %></div>
                       <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right"></i></div>
                     </div>
                     <% end %>
@@ -60,7 +60,7 @@
                       <p class="item" data-counter-target="name"><%= product.name%></p>
                       <p data-counter-target="cost"><%= product.cost%></p>
                       <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
-                      <div class="value" data-counter-target="value" data-id="<%=product.id%>">0</div>
+                      <div class="value" data-counter-target="value" data-id="<%=product.id%>"><%= @existing[product.name] || 0 %></div>
                       <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right"></i></div>
                     </div>
                     <% end %>
@@ -89,7 +89,7 @@
                       <p class="item" data-counter-target="name"><%= product.name%></p>
                       <p data-counter-target="cost"><%= product.cost%></p>
                       <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
-                      <div class="value" data-counter-target="value" data-id="<%=product.id%>">0</div>
+                      <div class="value" data-counter-target="value" data-id="<%=product.id%>"><%= @existing[product.name] || 0 %></div>
                       <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right"></i></div>
                     </div>
                     <% end %>

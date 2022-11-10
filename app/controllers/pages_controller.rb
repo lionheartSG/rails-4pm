@@ -26,15 +26,21 @@ class PagesController < ApplicationController
 
   def new
     @products = Product.all
-    @cart = CartItem.new
+    @existing = {}
     if @user.order.nil?
       order = Order.new
       order.user = @user
       order.save!
+    elsif @user.order.cart_items.any?
+      @user.order.cart_items.each do |item|
+        @existing[item.product.name] = item.quantity
+      end
     end
   end
 
   def create
+    CartItem.where(order: @user.order).destroy_all
+
     cart_item_params.each do |data|
       CartItem.create(order: @user.order, product: Product.find(data['id'].to_i), quantity: data['quantity'].to_i) if data['quantity'].to_i > 0
     end
