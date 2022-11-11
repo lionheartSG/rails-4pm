@@ -26,7 +26,7 @@
                 </div>
                   <% @products.each do |product| %>
                   <% if product.category == "Staples" %>
-                    <div class="staples-header" data-controller="counter" data-counter-target="basket">
+                    <div class="staples-header" data-controller="counter" data-counter-target="basket" data-counter-existing-value="<%= @existing_cart.to_json %>">
                       <p><%= image_tag product.path, width: 40 %></p>
                       <p class="item" data-counter-target="name"><%= product.name%></p>
                       <p data-counter-target="cost"><%= product.cost%></p>
