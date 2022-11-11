@@ -110,7 +110,10 @@
         <p class="cost">Credit</p>
         <p class="number">Selection</p>
       </div>
-      <div class="basket-tables-insert" >
+      <div class="basket-tables-insert">
+        <% @existing_cart.each_with_index do |basket_item, index| %>
+          <%= render 'orders/basket_table', basket_item: basket_item, index: index %>
+        <% end %>
       </div>
       <h3>Remaining Credits:<span data-totalcredits-target="total">150</span></h3>
       <div class="basket-note">
