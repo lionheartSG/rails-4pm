@@ -19,9 +19,11 @@ class PagesController < ApplicationController
   end
 
   def update
-    @user.update(user_params)
-    redirect_to new_path
-    # render :edit, status: :unprocessable_entity
+    if @user.update(user_params)
+      redirect_to new_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def new
@@ -46,12 +48,6 @@ class PagesController < ApplicationController
     cart_item_params.each do |data|
       CartItem.create(order: @user.order, product: Product.find(data['id'].to_i), quantity: data['quantity'].to_i) if data['quantity'].to_i > 0
     end
-
-    # information = request.raw_post
-    # data_parsed = JSON.parse(information)
-    # data_parsed.each do |data|
-    #   CartItem.create(order_id: @user.order, product_id: data[0]['id'].to_i, quantity: data[0]['quantity'].to_i) if data[0]['quantity'].to_i > 0
-    # end
 
     respond_to do |f|
       f.html
