@@ -27,6 +27,7 @@ class PagesController < ApplicationController
   def new
     @products = Product.all
     @existing = {}
+    @existing_cart = []
     if @user.order.nil?
       order = Order.new
       order.user = @user
@@ -35,6 +36,7 @@ class PagesController < ApplicationController
       @user.order.cart_items.each do |item|
         @existing[item.product.name] = item.quantity
       end
+      @existing_cart = @user.order.cart_items
     end
   end
 
