@@ -2,7 +2,8 @@
 
 <div class="container">
   <h2>Confirmed Order: </h2>
-  <% @order.cart_items.each do |cart| %>
+  <% @order.cart_items.each_with_index do |cart, index| %>
+  <p><%= index + 1 %></p>
   <p><%= cart.product.name %></p>
   <p><%= cart.quantity %></p>
   <% end %>
@@ -11,9 +12,10 @@
 <div class="container">
   <h2>Details</h2>
   <div class="user-details">
-    <p>Name: </p>
-    <p>Phone Number: </p>
-    <p>Address Delivered to: </p>
+    <p>Name: <%= @user.name %></p>
+    <p>Phone Number: <%= @user.handphone %></p>
+    <p>Email Address: <%= @user.email_address %></p>
+    <p>Address Delivered to: <%= @user.block %> <%= @user.street %> <%= @user.unit %> <%= @user.postal %> </p>
   </div>
 
   <div class="note">
@@ -26,8 +28,5 @@
     </ol>
   </div>
 
-  <div class="footer">
-    <p>Help?</p>
-    <p>Contact Reza 8198 0581</p>
-  </div>
+  <%= render "pages/footer" %>
 </div>
