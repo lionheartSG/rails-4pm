@@ -1,9 +1,18 @@
-<div class="content">
-  <h1>4PM ROW 2022 Site</h1>
-  <p>Please input your code given by 4PM staff</p>
-  <p>Note: Only small letters</p>
-
-  <%= render "pages/code", pages: @pages %>
+<div class="content d-flex flex-column">
+  <div class="introheader d-inline-flex">
+    <h1>Welcome to the 4PM ROW 2023 donation form!</h1>
+  </div>
+  <div class="textcenter">
+    <p>Please input your code given by 4PM staff<br>
+    Note: Only small letters</p>
+  </div>
+  <div class="textcenter">
+    <%= render "pages/code", pages: @pages %>
+  </div>
 </div>
 
-<%= render "pages/footer" %>
+<div class="footer textcenter">
+  <p>Need Help?</p>
+  <p>Contact via Whatsapp</p>
+  <p>ROW Admin 83003852</p>
+</div>

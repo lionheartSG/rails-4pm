@@ -1,4 +1,4 @@
 <%= simple_form_for :pages, url: edit_path, method: :get do |f| %>
-  <%= f.input :uniquecode, required: true %>
-  <%= f.submit "Log In" %>
+  <%= f.input :uniquecode, label: 'uniquecode*', required: true %>
+  <%= f.submit "Log In", class: "common-button" %>
 <% end %>
