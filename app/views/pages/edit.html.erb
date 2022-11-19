@@ -1,17 +1,20 @@
-<h1>Please confirm your details</h1>
-
-<%= simple_form_for @user, url: update_path, method: :patch do |f| %>
-  <%= f.input :name, required: true %>
-  <%= f.input :block, required: true %>
-  <%= f.input :street, required: true %>
-  <%= f.input :unit, required: true %>
-  <%= f.input :postal, required: true %>
-  <%= f.input :handphone, required: true %>
-  <%= f.input :email_address, required: true %>
-  <%= f.button :submit %>
-  <% end %>
-
-<div class="footer">
-  <p>Help?</p>
-  <p>Contact Reza 8198 0581</p>
+<div class ="textcenter">
+  <h1>Please confirm your details</h1>
+</div>
+<div class="content">
+  <%= simple_form_for @user, url: update_path, method: :patch do |f| %>
+    <%= f.input :name, label: 'Name*', required: true %>
+    <%= f.input :block, label: 'Block*', required: true %>
+    <%= f.input :street, label: 'Street*', required: true %>
+    <%= f.input :unit, label: 'Unit*', required: true %>
+    <%= f.input :postal, label: 'Postal*', required: true %>
+    <%= f.input :handphone, label: 'Handphone*', required: true %>
+    <%= f.input :email_address, label: 'Email Address*', required: true %>
+    <%= f.button :submit, class: "common-button" %>
+    <% end %>
+</div>
+<div class="footer textcenter">
+  <p>Need Help?</p>
+  <p>Contact via Whatsapp <br>
+  ROW Admin 83003852</p>
 </div>

@@ -1,33 +1,48 @@
-<h1>Confirmation Page</h1>
+<div class="d-flex flex-column">
 
-<div class="container">
-  <h2>Confirmed Order: </h2>
-  <% @order.cart_items.each do |cart| %>
-  <p><%= cart.product.name %></p>
-  <p><%= cart.quantity %></p>
-  <% end %>
-</div>
-
-<div class="container">
-  <h2>Details</h2>
-  <div class="user-details">
-    <p>Name: </p>
-    <p>Phone Number: </p>
-    <p>Address Delivered to: </p>
+  <div class="textcenter">
+    <div>
+      <div class="topheader">
+        <%= image_tag "checked.png", width: "180" %>
+      </div>
+      <div class ="confirmationbar">
+        <h1 style="">Your order is confirmed</h1>
+      </div>
+    </div>
   </div>
 
-  <div class="note">
-  <h2>Note</h2>
-    <ol>
-      <li>Any unused remaining credits will be deleted and unclaimable.</li>
-      <li>Items selected are subject to availability. Alternative items of similar value may be provided instead.</li>
-      <li>Delivery date will be on DD MM YY (between 10am - 6pm). Unfortunately, no specific timing will be given.</li>
-      <li>Please ensure that someone is home to receive the items</li>
-    </ol>
+  <div class="d-flex justify-content-around">
+    <div class="container content">
+      <h2>Confirmed Order: </h2>
+      <% @order.cart_items.each do |cart| %>
+      <p><%= cart.product.name %></p>
+      <p><%= cart.quantity %></p>
+      <% end %>
+    </div>
+
+    <div class="container content">
+      <h2>Details</h2>
+      <div class="user-details">
+        <p>Name: </p>
+        <p>Phone Number: </p>
+        <p>Address Delivered to: </p>
+      </div>
+
+      <div class="note">
+      <h2>Note</h2>
+        <ol>
+          <li>Any unused remaining credits will be deleted and unclaimable.</li>
+          <li>Items selected are subject to availability. Alternative items of similar value may be provided instead.</li>
+          <li>Delivery date will be on DD MM YY (between 10am - 6pm). Unfortunately, no specific timing will be given.</li>
+          <li>Please ensure that someone is home to receive the items</li>
+        </ol>
+      </div>
+    </div>
   </div>
 
-  <div class="footer">
-    <p>Help?</p>
-    <p>Contact Reza 8198 0581</p>
+  <div class="footer textcenter">
+    <p>Need Help?</p>
+    <p>Contact via Whatsapp<br>
+        ROW Admin 83003852</p>
   </div>
 </div>
