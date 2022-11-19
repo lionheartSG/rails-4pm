@@ -1,5 +1,6 @@
 <div class="d-flex flex-column">
 
+
   <div class="textcenter">
     <div>
       <div class="topheader">
@@ -9,6 +10,24 @@
         <h1 style="">Your order is confirmed</h1>
       </div>
     </div>
+
+<div class="container content">
+  <h2>Confirmed Order: </h2>
+  <% @order.cart_items.each_with_index do |cart, index| %>
+  <p><%= index + 1 %></p>
+  <p><%= cart.product.name %></p>
+  <p><%= cart.quantity %></p>
+  <% end %>
+</div>
+
+<div class="container">
+  <h2>Details</h2>
+  <div class="user-details">
+    <p>Name: <%= @user.name %></p>
+    <p>Phone Number: <%= @user.handphone %></p>
+    <p>Email Address: <%= @user.email_address %></p>
+    <p>Address Delivered to: <%= @user.block %> <%= @user.street %> <%= @user.unit %> <%= @user.postal %> </p>
+
   </div>
 
   <div class="d-flex justify-content-around">
@@ -39,6 +58,7 @@
       </div>
     </div>
   </div>
+
 
   <div class="footer textcenter">
     <p>Need Help?</p>

@@ -2,7 +2,6 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="counter"
 let currentCredit = 150
-let idCounter = 1
 export default class extends Controller {
   static targets = ["credit", "cost", "value", "basket", "name"]
 
@@ -32,7 +31,6 @@ export default class extends Controller {
       } else {
       const basketDiv = document.querySelector(".basket-tables-insert");
       const basketTag = `<div class="basket-tables" data-id="list-${productId}">
-                    <p class="counter">${idCounter}</p>
                     <p class="item">${itemName}</p>
                     <p class="cost">${cost}</p>
                     <p class="number">${counter}</p>
