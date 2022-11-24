@@ -1,68 +1,56 @@
-<div class="d-flex flex-column">
-
-
-  <div class="textcenter">
-    <div>
-      <div class="topheader">
-        <%= image_tag "checked.png", width: "180" %>
-      </div>
-      <div class ="confirmationbar">
-        <h1 style="">Your order is confirmed</h1>
-      </div>
+<div class="textcenter">
+  <div>
+    <div class="topheader">
+      <%= image_tag "checked.png", width: "180" %>
     </div>
-
-<div class="container content">
-  <h2>Confirmed Order: </h2>
-  <% @order.cart_items.each_with_index do |cart, index| %>
-  <p><%= index + 1 %></p>
-  <p><%= cart.product.name %></p>
-  <p><%= cart.quantity %></p>
-  <% end %>
+    <div class ="confirmationbar">
+      <h1 style="">Your order is confirmed</h1>
+    </div>
+  </div>
 </div>
 
-<div class="container">
-  <h2>Details</h2>
-  <div class="user-details">
-    <p>Name: <%= @user.name %></p>
-    <p>Phone Number: <%= @user.handphone %></p>
-    <p>Email Address: <%= @user.email_address %></p>
-    <p>Address Delivered to: <%= @user.block %> <%= @user.street %> <%= @user.unit %> <%= @user.postal %> </p>
 
+<div class="container-confirmed">
+  <div class="container">
+    <div class="order-summary">
+      <h2><strong>Confirmed Order:</strong></h2>
+        <% @order.cart_items.each do |cart| %>
+          <div class="cart-summary">
+            <p><%= cart.product.name %></p>
+            <p><%= cart.quantity %></p>
+          </div>
+        <% end %>
+    </div>
   </div>
 
-  <div class="d-flex justify-content-around">
-    <div class="container content">
-      <h2>Confirmed Order: </h2>
-      <% @order.cart_items.each do |cart| %>
-      <p><%= cart.product.name %></p>
-      <p><%= cart.quantity %></p>
-      <% end %>
-    </div>
-
-    <div class="container content">
-      <h2>Details</h2>
+  <div class="container">
+    <div class="user-summary">
       <div class="user-details">
-        <p>Name: </p>
-        <p>Phone Number: </p>
-        <p>Address Delivered to: </p>
+        <h2><strong>Details:</strong></h2>
+        <p>Name: <%= @user.name %></p>
+        <p>Phone Number: <%= @user.handphone %></p>
+        <p>Email Address: <%= @user.email_address %></p>
+        <p>Address Delivered to: <%= @user.block %> <%= @user.street %> <%= @user.unit %> <%= @user.postal %> </p>
+        <br><br>
       </div>
 
       <div class="note">
-      <h2>Note</h2>
-        <ol>
-          <li>Any unused remaining credits will be deleted and unclaimable.</li>
-          <li>Items selected are subject to availability. Alternative items of similar value may be provided instead.</li>
-          <li>Delivery date will be on DD MM YY (between 10am - 6pm). Unfortunately, no specific timing will be given.</li>
-          <li>Please ensure that someone is home to receive the items</li>
-        </ol>
+        <h2><strong>Note:</strong></h2>
+          <ol>
+            <li>Any unused remaining credits will be deleted and unclaimable.</li>
+            <li>Items selected are subject to availability. Alternative items of similar value may be provided instead.</li>
+            <li>Delivery date will be on DD MM YY (between 10am - 6pm). Unfortunately, no specific timing will be given.</li>
+            <li>Please ensure that someone is home to receive the items</li>
+          </ol><br>
+      </div>
+
+      <div class="footer textcenter">
+        <p>Need Help?</p>
+        <p>Contact via Whatsapp<br>
+          ROW Admin 83003852</p>
       </div>
     </div>
   </div>
 
 
-  <div class="footer textcenter">
-    <p>Need Help?</p>
-    <p>Contact via Whatsapp<br>
-        ROW Admin 83003852</p>
-  </div>
 </div>
