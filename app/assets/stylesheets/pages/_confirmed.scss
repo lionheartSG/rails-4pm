@@ -7,3 +7,30 @@
   margin: 18px;
   background-color: mediumseagreen;
 }
+
+.container-confirmed {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+.user-summary {
+  background-color: #9B9394;
+  margin-left: 20px;
+  padding: 30px;
+  border-radius: 4%;
+}
+
+.order-summary {
+  padding: 30px;
+  background-color: #9B9394;
+  border-radius: 4%;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
