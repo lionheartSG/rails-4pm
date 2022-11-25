@@ -5,11 +5,17 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-puts 'Cleaning up database'
+
+require "csv"
+
+puts '*** Cleaning up products/users/cart_items ***'
+puts ''
+CartItem.destroy_all
 Product.destroy_all
 User.destroy_all
 
-puts 'Seeding database with products'
+puts '*** Seeding database with products ***'
+puts ''
 Product.create(
   name: "Rice",
   cost: 7,
@@ -162,7 +168,7 @@ Product.create(
   path: "condensed-milk.png"
 )
 
-puts '----------Hari Raya Preparation Stuff ---------'
+puts '-- Hari Raya Preparation Stuff --'
 
 Product.create(
   name: "Raya Cookies",
@@ -244,7 +250,7 @@ Product.create(
   path: "curry-powder.png"
 )
 
-puts '----------Cleaning Essentials Stuff ---------'
+puts '-- Cleaning Essentials Stuff --'
 
 Product.create(
   name: "Kitchen Roll",
@@ -294,23 +300,27 @@ Product.create(
   path: "toothbrush.png"
 )
 
-puts 'Seeding database with users'
+puts ''
+puts '*** Seeding database with users ***'
 
-User.create(
-  name: "Fairul Izwan",
-  block: "140",
-  street: "Rivervale Street",
-  unit: "#07-774",
-  postal: "540140",
-  handphone: 97269434,
-  email_address: "izwanrul@gmail.com",
-  uniquecode: "123abc"
-)
+filepath = "db/user.csv"
 
-# require "csv"
+CSV.foreach(filepath, headers: :first_row) do |row|
+  User.create(
+    name: row['name'],
+    block: row['block'],
+    street: row['street'],
+    unit: row['unit'],
+    postal: row['postal'],
+    email_address: row['email_address'],
+    uniquecode: row['uniquecode'],
+    handphone: row['handphone']
+  )
+end
 
-# filepath = "./users.csv"
-
-# CSV.foreach(filepath, headers: :first_row) do |row|
-#   User.create(name: row['name'], address: row['address'], email: row['email'], contact: row['contact'])
-# end
+puts ''
+puts '                   __'
+puts ' ____             |  |'
+puts '|    \ ___ ___ ___|  |'
+puts '|  |  | . |   | -_|__|'
+puts '|____/|___|_|_|___|__|'
