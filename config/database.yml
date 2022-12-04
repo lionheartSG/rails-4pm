@@ -84,3 +84,4 @@ production:
   database: rails_4pm_production
   username: rails_4pm
   password: <%= ENV["RAILS_4PM_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
