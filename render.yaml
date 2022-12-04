@@ -3,6 +3,7 @@ databases:
     databaseName: mysite
     user: mysite
     plan: free
+    region: singapore
 
 services:
   - type: web
@@ -11,6 +12,7 @@ services:
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     plan: free
+    region: singapore
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -23,3 +25,4 @@ services:
     ipAllowList: []
     plan: free
     maxmemoryPolicy: noeviction
+    region: singapore
