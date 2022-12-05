@@ -17,6 +17,7 @@ export default class extends Controller {
     setTimeout(() => {
       const allInCart = document.querySelectorAll(".value")
       const remainingCredit = this.totalTarget.innerText
+      console.log(remainingCredit)
 
       // console.log(allInCart)
       // console.log(allInCart[2].innerText)

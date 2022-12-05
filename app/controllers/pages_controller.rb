@@ -74,7 +74,7 @@ class PagesController < ApplicationController
   end
 
   def cart_item_params
-    params.require(:cart_items)
+    params.fetch(:cart_items)
   end
 
   def credits_params
