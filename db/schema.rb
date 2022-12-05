@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_25_150103) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_05_051223) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_25_150103) do
     t.string "uniquecode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "credit", default: "150"
   end
 
   add_foreign_key "cart_items", "orders"

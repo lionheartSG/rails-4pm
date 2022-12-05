@@ -34,7 +34,7 @@ export default class extends Controller {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ cart_items: orders })
+        body: JSON.stringify({ cart_items: orders, credits: remainingCredit })
       })
         .then((response) => response)
         .then((data) => {

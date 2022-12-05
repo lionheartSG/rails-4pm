@@ -1,7 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="counter"
-let currentCredit = 150
+
+
 export default class extends Controller {
   static targets = ["credit", "cost", "value", "basket", "name"]
 
@@ -9,12 +10,12 @@ export default class extends Controller {
   }
 
   increment(){
+    let currentCredit = parseFloat(document.getElementById("remaining-credit").innerText)
     let counter = this.valueTarget.innerText
 
     if ((counter == 3) || (currentCredit < this.costTarget.innerText)) {
       return
     } else {
-
       counter++
       this.valueTarget.innerText = counter
       let cost = this.costTarget.innerText
@@ -42,6 +43,7 @@ export default class extends Controller {
   }
 
   decrement(){
+    let currentCredit = parseFloat(document.getElementById("remaining-credit").innerText)
     let counter = this.valueTarget.innerText
     if (counter == 0) {
       this.valueTarget.innerText = 0
