@@ -30,6 +30,7 @@ class PagesController < ApplicationController
     @products = Product.all
     @existing = {}
     @existing_cart = []
+    @remaining_credit = @user.credit
     if @user.order.nil?
       order = Order.new
       order.user = @user
@@ -48,6 +49,9 @@ class PagesController < ApplicationController
     cart_item_params.each do |data|
       CartItem.create(order: @user.order, product: Product.find(data['id'].to_i), quantity: data['quantity'].to_i) if data['quantity'].to_i > 0
     end
+
+    @user.credit = credits_params
+    @user.save!
 
     respond_to do |f|
       f.html
@@ -71,6 +75,10 @@ class PagesController < ApplicationController
 
   def cart_item_params
     params.require(:cart_items)
+  end
+
+  def credits_params
+    params.require(:credits)
   end
 
   def order_params
