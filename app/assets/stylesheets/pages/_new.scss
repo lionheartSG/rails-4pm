@@ -1,22 +1,23 @@
 .new-body {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin: 0;
 }
 
 .left-body {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 380px;
 }
 
 .right-body {
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 380px;
 }
 
 .new-note {
-  width: 400px;
   margin-bottom: 16px;
   padding: 16px;
   background-color: #114546;
@@ -32,7 +33,6 @@
 
 .new-staples {
   border: black ;
-  width: 400px;
   margin-bottom: 72px;
 }
 
@@ -79,7 +79,6 @@
 .new-reminder {
   display: flex;
   flex-direction: column;
-  width: 400px;
   margin-bottom: 16px;
   padding: 16px;
   background-color: #114546;
@@ -98,7 +97,6 @@
 }
 
 .new-footer {
-  width: 400px;
   p {
     text-align: center;
   }
@@ -106,16 +104,46 @@
 
 .staples-header{
   display: flex;
-  justify-content: space-between;
-  p {
-    display: flex;
-    width: 70px;
-    justify-content: space-between;
-    align-items: center;
+  height: 80px;
+
+  .header {
+    font-weight: 600;
+    margin: 0 0 0 36px;
   }
+
   .item {
-    flex-grow: 1
+    width: 270px;
+    display: flex;
+    align-items: center;
+
+    p {
+      padding-left: 16px;
+      padding-right: 16px;
+      margin: 0;
+    }
+
   }
+
+  .credit {
+    width: 50px;
+    display: flex;
+    align-items: center;
+    p {
+      margin: 0
+    }
+  }
+
+  .selection {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 130px;
+  }
+}
+
+
+.accordion {
+  width: 380px;
 }
 
 .accordion-header{
@@ -136,6 +164,10 @@
   font-weight: 600;
   color: #F09663;
   background-color: #112A46;
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
 }
 
 .accordion-button:not(.collapsed) {

@@ -36,7 +36,7 @@ export default class extends Controller {
                     <p class="number">${counter}</p>
                   </div>`
       basketDiv.insertAdjacentHTML("beforeend", basketTag)
-      idCounter = idCounter + 1
+      // idCounter = idCounter + 1
     }
     }
   }
@@ -61,11 +61,11 @@ export default class extends Controller {
         number.innerText = counter
         if (counter === 0){
           element.remove()
-          idCounter = idCounter - 1
+          // idCounter = idCounter - 1
         }
       } else {
         element.remove()
-        idCounter = idCounter - 1
+        // idCounter = idCounter - 1
       }
     }
   }

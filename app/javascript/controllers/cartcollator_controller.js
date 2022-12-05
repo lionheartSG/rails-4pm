@@ -4,6 +4,8 @@ import { Controller } from "@hotwired/stimulus"
 let orders = []
 
 export default class extends Controller {
+  static targets = ["total"]
+
   connect() {
     console.log("hello from cartcollator")
   }
@@ -14,6 +16,8 @@ export default class extends Controller {
 
     setTimeout(() => {
       const allInCart = document.querySelectorAll(".value")
+      const remainingCredit = this.totalTarget.innerText
+
       // console.log(allInCart)
       // console.log(allInCart[2].innerText)
       // console.log(allInCart[2].dataset.id)
@@ -23,7 +27,7 @@ export default class extends Controller {
           quantity: cart.innerText
         })).filter(cartItem => cartItem.quantity > 0)
 
-        console.log({ cart_items: orders });
+        console.log({ cart_items: orders, credits: remainingCredit });
 
       fetch("/create", {
         method: "POST",

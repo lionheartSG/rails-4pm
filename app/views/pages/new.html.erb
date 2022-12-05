@@ -19,20 +19,25 @@
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 <div class="staples-header">
-                  <p></p>
-                  <p class="item">Item</p>
-                  <p>Credit</p>
-                  <p>Selection</p>
+                  <p class="header item">Items</p>
+                  <p class="header credit">Credit</p>
+                  <p class="header selection">Selection</p>
                 </div>
                   <% @products.each do |product| %>
                   <% if product.category == "Staples" %>
                     <div class="staples-header" data-controller="counter" data-counter-target="basket" data-counter-existing-value="<%= @existing_cart.to_json %>">
-                      <p><%= image_tag product.path, width: 40 %></p>
-                      <p class="item" data-counter-target="name"><%= product.name%></p>
-                      <p data-counter-target="cost"><%= product.cost%></p>
-                      <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
-                      <div class="value" data-counter-target="value" data-id="<%=product.id%>"><%= @existing[product.name] || 0 %></div>
-                      <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right"></i></div>
+                      <div class="item">
+                        <%= image_tag product.path, width: 40 %>
+                        <p data-counter-target="name"><%= product.name%></p>
+                      </div>
+                      <div class="credit">
+                        <p data-counter-target="cost"><%= product.cost%></p>
+                      </div>
+                      <div class="selection">
+                        <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left fa-2xl"></i></div>
+                        <div class="value" data-counter-target="value" data-id="<%=product.id%>"><%= @existing[product.name] || 0 %></div>
+                        <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right fa-2xl"></i></div>
+                      </div>
                     </div>
                     <% end %>
                   <% end %>
@@ -48,20 +53,25 @@
             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 <div class="staples-header">
-                  <p></p>
-                  <p class="item">Item</p>
-                  <p>Credit</p>
-                  <p>Selection</p>
+                  <p class="header item">Items</p>
+                  <p class="header credit">Credit</p>
+                  <p class="header selection">Selection</p>
                 </div>
                     <% @products.each do |product| %>
                   <% if product.category == "Hari Raya Preparation" %>
                     <div class="staples-header" data-id="<%=product.id%>" data-controller="counter">
-                      <p><%= image_tag product.path, width: 40 %></p>
-                      <p class="item" data-counter-target="name"><%= product.name%></p>
-                      <p data-counter-target="cost"><%= product.cost%></p>
-                      <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
-                      <div class="value" data-counter-target="value" data-id="<%=product.id%>"><%= @existing[product.name] || 0 %></div>
-                      <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right"></i></div>
+                    <div class="item">
+                      <%= image_tag product.path, width: 40 %>
+                      <p data-counter-target="name"><%= product.name%></p>
+                    </div>
+                    <div class="credit">
+                       <p data-counter-target="cost"><%= product.cost%></p>
+                    </div>
+                      <div class="selection">
+                        <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left fa-2xl"></i></div>
+                        <div class="value" data-counter-target="value" data-id="<%=product.id%>"><%= @existing[product.name] || 0 %></div>
+                        <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right fa-2xl"></i></div>
+                      </div>
                     </div>
                     <% end %>
                   <% end %>
@@ -77,20 +87,25 @@
             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
               <div class="accordion-body">
                 <div class="staples-header">
-                  <p></p>
-                  <p class="item">Item</p>
-                  <p>Credit</p>
-                  <p>Selection</p>
+                  <p class="header item">Items</p>
+                  <p class="header credit">Credit</p>
+                  <p class="header selection">Selection</p>
                 </div>
                 <% @products.each do |product| %>
                   <% if product.category == "Cleaning Essentials" %>
                     <div class="staples-header" data-id="<%=product.id%>" data-controller="counter">
-                      <p><%= image_tag product.path, width: 40 %></p>
-                      <p class="item" data-counter-target="name"><%= product.name%></p>
-                      <p data-counter-target="cost"><%= product.cost%></p>
-                      <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left"></i></div>
-                      <div class="value" data-counter-target="value" data-id="<%=product.id%>"><%= @existing[product.name] || 0 %></div>
-                      <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right"></i></div>
+                    <div class="item">
+                      <%= image_tag product.path, width: 40 %>
+                      <p data-counter-target="name"><%= product.name%></p>
+                    </div>
+                    <div class="credit">
+                        <p data-counter-target="cost">
+                    <%= product.cost%></p></div>
+                      <div class="selection">
+                        <div class="decrement mx-2" data-action="click->counter#decrement"><i class="fa-solid fa-caret-left fa-2xl"></i></div>
+                        <div class="value" data-counter-target="value" data-id="<%=product.id%>"><%= @existing[product.name] || 0 %></div>
+                        <div class="increment mx-2" data-action="click->counter#increment"><i class="fa-solid fa-caret-right fa-2xl"></i></div>
+                      </div>
                     </div>
                     <% end %>
                   <% end %>
@@ -105,7 +120,7 @@
       <h3>Your basket:</h3>
       <br>
       <div class="basket-tables" >
-        <p class="item">Item</p>
+        <p class="item">Items</p>
         <p class="cost">Credit</p>
         <p class="number">Selection</p>
       </div>
@@ -114,7 +129,7 @@
           <%= render 'orders/basket_table', basket_item: basket_item, index: index %>
         <% end %>
       </div>
-      <h3>Remaining Credits:<span data-totalcredits-target="total">150</span></h3>
+      <h3>Remaining Credits:<span data-totalcredits-target="total" data-cartcollator-target="total">150</span></h3>
       <div class="basket-note">
         <p>Any unused remaining credits will be deleted and unclaimable</p>
       </div>
