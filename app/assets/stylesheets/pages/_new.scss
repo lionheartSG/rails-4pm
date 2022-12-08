@@ -144,9 +144,9 @@
 }
 
 
-.accordion {
-  width: 380px;
-}
+// .accordion {
+
+// }
 
 .accordion-header{
   background-color: #F09663;
@@ -190,12 +190,14 @@
 
 @media only screen and (max-width: 400px) {
   .left-body {
-    margin: 0;
+    margin: 48px 0 0 0;
+    padding: 4px;
     width: 360px;
   }
 
   .right-body {
     margin: 0;
+    padding: 4px;
     width: 360px;
   }
 }
