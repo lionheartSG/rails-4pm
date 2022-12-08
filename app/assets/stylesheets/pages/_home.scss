@@ -1,28 +1,22 @@
 // Specific CSS for your home-page
 body {
   background-color: #F09663;
-  width: 80%;
 }
 
 .content {
   background-color: #9B9394;
-  padding: 20px;
-  width: 550px;
-  margin: auto;
+  overflow: hidden;
 }
 
 .textcenter {
  text-align: center
 }
 
-.footer {
-  margin-top: 20px;
+ .introheader > h1 {
+  font-weight: bold;
+  text-align: center;
  }
 
- .introheader {
-  border-bottom: 20px;
- }
-
- abbr {
+ .pages_uniquecode > label {
   display: none
 }
