@@ -1,21 +1,17 @@
-<div class ="textcenter">
+<div class="textcenter my-1">
   <h1>Please confirm your details</h1>
 </div>
-<div class="content">
-  <%= simple_form_for @user, url: update_path, method: :patch do |f| %>
-    <%= f.input :name, label: 'Name*', required: true %>
-    <%= f.input :block, label: 'Block*', required: true %>
-    <%= f.input :street, label: 'Street*', required: true %>
-    <%= f.input :unit, label: 'Unit*', required: true %>
-    <%= f.input :postal, label: 'Postal*', required: true %>
-    <%= f.input :handphone, label: 'Handphone*', required: true %>
-    <%= f.input :email_address, label: 'Email Address*', required: true %>
-    <%= f.button :submit, class: "common-button" %>
+<div class="content editpage p-4 rounded-4 col-12 col-lg-6">
+  <div></div>
+  <%= simple_form_for @user, url: update_path, method: :patch, html: { class: "textcenter"} do |f| %>
+    <%= f.input :name, label: 'Name', required: true %>
+    <%= f.input :block, label: 'Block', required: true %>
+    <%= f.input :street, label: 'Street', required: true %>
+    <%= f.input :unit, label: 'Unit', required: true %>
+    <%= f.input :postal, label: 'Postal', required: true %>
+    <%= f.input :handphone, label: 'Handphone', required: true %>
+    <%= f.input :email_address, label: 'Email Address', required: true %>
+    <%= f.button :submit, class: "common-button", value: "Save & Submit" %>
     <% end %>
 </div>
-<div class="footer textcenter">
-  <p>Need Help?</p>
-  <p>Contact via Whatsapp <br>
-  ROW Admin 83003852</p>
-</div>
-
+<%= render "pages/footer" %>

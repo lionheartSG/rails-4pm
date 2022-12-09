@@ -1,10 +1,16 @@
-.content {
-  background-color: #9B9394;
-  padding: 20px;
-  width: 550px;
-  margin: auto;
+.editpage {
+  form {
+    .required {
+    display: flex;
+    justify-content: space-between;
+      label {
+        margin: auto 0;
+        font-weight: bold;
+        // width: 40vw;
+      }
+      input {
+        width: 60%;
+      }
+    }
+  }
 }
-
-.textcenter {
-  text-align: center
- }
