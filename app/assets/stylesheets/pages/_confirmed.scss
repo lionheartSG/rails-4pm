@@ -1,6 +1,5 @@
 .topheader {
-  margin-top: 40px;
-  margin-bottom: 12px;
+  margin: 40px 0 12px 0;
 }
 
 .confirmationbar {
@@ -23,7 +22,7 @@
       justify-content: space-evenly;
 
       .numbering {
-        width: 60px
+        width: 60px;
       }
 
       .item-header {
