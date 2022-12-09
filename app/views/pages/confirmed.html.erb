@@ -1,56 +1,64 @@
 <div class="textcenter">
   <div>
     <div class="topheader">
-      <%= image_tag "checked.png", width: "180" %>
+      <%= image_tag "checked.png", width: "100" %>
     </div>
     <div class ="confirmationbar">
-      <h1 style="">Your order is confirmed</h1>
+      <h2 style="">Your order is confirmed!</h2>
     </div>
   </div>
 </div>
 
 
-<div class="container-confirmed">
-  <div class="container">
-    <div class="order-summary">
-      <h2><strong>Confirmed Order:</strong></h2>
-        <% @order.cart_items.each do |cart| %>
-          <div class="cart-summary">
-            <p><%= cart.product.name %></p>
-            <p><%= cart.quantity %></p>
-          </div>
-        <% end %>
+<div class="container">
+
+  <div class="order-summary">
+    <h2 class="text-center"><strong>Confirmed Order</strong></h2>
+    <div class="cart-summary">
+        <p class="numbering"><strong>No</strong></p>
+        <p class="item-header"><strong>Item</strong></p>
+        <p class="credit"><strong>Credit</strong></p>
+        <p class="quantity-header"><strong>Selection</strong></p>
     </div>
+      <% @order.cart_items.each_with_index do |cart, index| %>
+        <div class="cart-summary">
+          <p class="numbering"><%= index + 1 %></p>
+          <p class="item"><%= cart.product.name %></p>
+          <p class="description"><%= cart.product.description %></p>
+          <p class="cost"><%= cart.product.cost %></p>
+          <p class="quantity"><%= cart.quantity %></p>
+        </div>
+      <% end %>
   </div>
 
-  <div class="container">
-    <div class="user-summary">
-      <div class="user-details">
-        <h2><strong>Details:</strong></h2>
-        <p>Name: <%= @user.name %></p>
-        <p>Phone Number: <%= @user.handphone %></p>
-        <p>Email Address: <%= @user.email_address %></p>
-        <p>Address Delivered to: <%= @user.block %> <%= @user.street %> <%= @user.unit %> <%= @user.postal %> </p>
-        <br><br>
-      </div>
 
-      <div class="note">
-        <h2><strong>Note:</strong></h2>
-          <ol>
-            <li>Any unused remaining credits will be deleted and unclaimable.</li>
+  <div class="user-summary">
+    <div class="user-details">
+      <h2 class="text-center"><strong>Details</strong></h2>
+        <p><strong>Name: </strong><%= @user.name %></p>
+        <p><strong>Phone Number: </strong><%= @user.handphone %></p>
+        <p><strong>Email Address: </strong><%= @user.email_address %></p>
+        <p><strong>Delivery Address: </strong><%= @user.block %> <%= @user.street %> <%= @user.unit %> <%= @user.postal %> </p>
+        <br><br>
+     </div>
+
+     <div class="note">
+       <h2 class="text-center"><strong>Note</strong></h2>
+        <ol>
+           <li>Any unused remaining credits will be deleted and unclaimable.</li>
             <li>Items selected are subject to availability. Alternative items of similar value may be provided instead.</li>
             <li>Delivery date will be on DD MM YY (between 10am - 6pm). Unfortunately, no specific timing will be given.</li>
-            <li>Please ensure that someone is home to receive the items</li>
-          </ol><br>
-      </div>
+            <li>Please ensure that someone is home to receive the items.</li>
+        </ol><br>
+     </div>
 
-      <div class="footer textcenter">
-        <p>Need Help?</p>
-        <p>Contact via Whatsapp<br>
-          ROW Admin 83003852</p>
-      </div>
+     <div class="footer textcenter">
+      <p>Need Help?</p>
+      <p>Contact via Whatsapp<br>
+        ROW Admin 83003852</p>
     </div>
   </div>
+
 
 
 </div>

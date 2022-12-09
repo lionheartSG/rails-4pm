@@ -1,36 +1,70 @@
 .topheader {
+  margin-top: 40px;
   margin-bottom: 12px;
 }
 
 .confirmationbar {
-  padding: 16px;
-  margin: 18px;
+  padding: 10px 30px;
+  margin: 40px 0;
   background-color: mediumseagreen;
+  border-radius: 12px;
 }
 
-.container-confirmed {
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-
-}
-
-
-.user-summary {
-  background-color: #9B9394;
-  margin-left: 20px;
-  padding: 30px;
-  border-radius: 4%;
-}
 
 .order-summary {
   padding: 30px;
   background-color: #9B9394;
-  border-radius: 4%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+
+    .cart-summary {
+      display: flex;
+      justify-content: space-evenly;
+
+      .numbering {
+        width: 60px
+      }
+
+      .item-header {
+        width: 250px;
+        text-align: center;
+      }
+
+      .credit {
+        width: 100px;
+        text-align: center;
+      }
+
+      .item {
+        width: 200px;
+      }
+
+      .description {
+        width: 120px;
+      }
+
+      .cost {
+        width: 150px;
+      }
+
+      .quantity-header {
+        width: 50px
+      }
+
+      .quantity {
+        width: 10px
+      }
+
+
+
+  }
+
 }
 
-.cart-summary {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
+.user-summary {
+  background-color: #9B9394;
+  margin-top: 20px;
+  padding: 30px;
+  border-radius: 8px;
 }
