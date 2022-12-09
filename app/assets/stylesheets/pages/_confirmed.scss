@@ -1,59 +1,60 @@
 .topheader {
-  margin: 40px 0 12px 0;
+  // margin: 40px 0 12px 0;
 }
 
 .confirmationbar {
-  padding: 10px 30px;
-  margin: 40px 0;
-  background-color: mediumseagreen;
-  border-radius: 12px;
+  // padding: 10px 30px;
+  // margin: 40px 0;
+  background-color: #33ba7c;
+  border-radius: 8px;
+  font-weight: 600;
 }
 
 
 .order-summary {
-  padding: 30px;
-  background-color: #9B9394;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
+  // padding: 30px;
+  // background-color: #9B9394;
+  // border-radius: 8px;
+  // display: flex;
+  // flex-direction: column;
 
     .cart-summary {
       display: flex;
       justify-content: space-evenly;
 
-      .numbering {
-        width: 60px;
-      }
+    //   .numbering {
+    //     width: 60px;
+    //   }
 
-      .item-header {
-        width: 250px;
-        text-align: center;
-      }
+    //   .item-header {
+    //     width: 250px;
+    //     text-align: center;
+    //   }
 
-      .credit {
-        width: 100px;
-        text-align: center;
-      }
+    //   .credit {
+    //     width: 100px;
+    //     text-align: center;
+    //   }
 
-      .item {
-        width: 200px;
-      }
+    //   .item {
+    //     width: 200px;
+    //   }
 
-      .description {
-        width: 120px;
-      }
+    //   .description {
+    //     width: 120px;
+    //   }
 
-      .cost {
-        width: 150px;
-      }
+    //   .cost {
+    //     width: 150px;
+    //   }
 
-      .quantity-header {
-        width: 50px
-      }
+    //   .quantity-header {
+    //     width: 50px
+    //   }
 
-      .quantity {
-        width: 10px
-      }
+    //   .quantity {
+    //     width: 10px
+    //   }
 
 
 
@@ -62,8 +63,11 @@
 }
 
 .user-summary {
-  background-color: #9B9394;
-  margin-top: 20px;
-  padding: 30px;
-  border-radius: 8px;
+  // background-color: #9B9394;
+  // margin-top: 20px;
+  // padding: 30px;
+  // border-radius: 8px;
+  ol {
+    color: #112A46;
+  }
 }

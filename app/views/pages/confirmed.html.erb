@@ -1,64 +1,50 @@
-<div class="textcenter">
-  <div>
-    <div class="topheader">
-      <%= image_tag "checked.png", width: "100" %>
-    </div>
-    <div class ="confirmationbar">
-      <h2 style="">Your order is confirmed!</h2>
-    </div>
+<div class="textcenter d-flex flex-column align-items-center justify-content-center col-12 col-lg-6 mt-4">
+  <%= image_tag "checked.png", class: "w-25" %>
+  <div class ="confirmationbar py-1 px-4 my-4">
+    <h2 class="m-0">Your order is confirmed!</h2>
   </div>
 </div>
 
-
-<div class="container">
-
-  <div class="order-summary">
+<div class="row justify-content-center mx-1">
+  <div class="order-summary content d-flex flex-column p-4 px-lg-5 rounded-4 col-12 col-lg-5 my-2 mx-1">
     <h2 class="text-center"><strong>Confirmed Order</strong></h2>
-    <div class="cart-summary">
-        <p class="numbering"><strong>No</strong></p>
-        <p class="item-header"><strong>Item</strong></p>
-        <p class="credit"><strong>Credit</strong></p>
-        <p class="quantity-header"><strong>Selection</strong></p>
+    <div class="cart-summary textcenter row">
+        <p class="col-2 p-0 mx-0 my-auto"><strong>No</strong></p>
+        <p class="col-2 p-0 mx-0 my-auto flex-grow-1"><strong>Item</strong></p>
+        <p class="col-2 p-0 mx-0 my-auto"><strong> </strong></p>
+        <p class="col-2 p-0 mx-0 my-auto"><strong>Credit</strong></p>
+        <p class="col-2 p-0 mx-0 my-auto"><strong>Qty</strong></p>
     </div>
       <% @order.cart_items.each_with_index do |cart, index| %>
-        <div class="cart-summary">
-          <p class="numbering"><%= index + 1 %></p>
-          <p class="item"><%= cart.product.name %></p>
-          <p class="description"><%= cart.product.description %></p>
-          <p class="cost"><%= cart.product.cost %></p>
-          <p class="quantity"><%= cart.quantity %></p>
+        <div class="cart-summary textcenter row my-1">
+          <p class="col-2 p-0 mx-0 my-auto"><%= index + 1 %></p>
+          <p class="col-2 p-0 mx-0 my-auto flex-grow-1"><%= cart.product.name %></p>
+          <p class="col-2 p-0 mx-0 my-auto"><%= cart.product.description %></p>
+          <p class="col-2 p-0 mx-0 my-auto"><%= cart.product.cost %></p>
+          <p class="col-2 p-0 mx-0 my-auto"><%= cart.quantity %></p>
         </div>
       <% end %>
   </div>
 
-
-  <div class="user-summary">
+  <div class="user-summary content d-flex flex-column p-4 px-lg-5 rounded-4 col-12 col-lg-5 my-2 mx-1">
     <div class="user-details">
       <h2 class="text-center"><strong>Details</strong></h2>
-        <p><strong>Name: </strong><%= @user.name %></p>
-        <p><strong>Phone Number: </strong><%= @user.handphone %></p>
-        <p><strong>Email Address: </strong><%= @user.email_address %></p>
-        <p><strong>Delivery Address: </strong><%= @user.block %> <%= @user.street %> <%= @user.unit %> <%= @user.postal %> </p>
-        <br><br>
-     </div>
+        <p class="m-0"><strong>Name: </strong><%= @user.name %></p>
+        <p class="m-0"><strong>Phone Number: </strong><%= @user.handphone %></p>
+        <p class="m-0"><strong>Email Address: </strong><%= @user.email_address %></p>
+        <p class="m-0"><strong>Delivery Address: </strong><%= @user.block %> <%= @user.street %> <%= @user.unit %> <%= @user.postal %> </p>
+        <br>
+    </div>
 
-     <div class="note">
-       <h2 class="text-center"><strong>Note</strong></h2>
-        <ol>
-           <li>Any unused remaining credits will be deleted and unclaimable.</li>
-            <li>Items selected are subject to availability. Alternative items of similar value may be provided instead.</li>
-            <li>Delivery date will be on DD MM YY (between 10am - 6pm). Unfortunately, no specific timing will be given.</li>
-            <li>Please ensure that someone is home to receive the items.</li>
-        </ol><br>
-     </div>
-
-     <div class="footer textcenter">
-      <p>Need Help?</p>
-      <p>Contact via Whatsapp<br>
-        ROW Admin 83003852</p>
+    <div class="note">
+      <h2 class="text-center"><strong>Note</strong></h2>
+      <ol class="px-3 px-lg-2">
+          <li>Any unused remaining credits will be deleted and unclaimable.</li>
+          <li>Items selected are subject to availability. Alternative items of similar value may be provided instead.</li>
+          <li>Delivery date will be on DD MM YY (between 10am - 6pm). Unfortunately, no specific timing will be given.</li>
+          <li>Please ensure that someone is home to receive the items.</li>
+      </ol><br>
     </div>
   </div>
-
-
-
 </div>
+<%= render "pages/footer" %>
