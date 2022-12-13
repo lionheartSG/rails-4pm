@@ -1,4 +1,5 @@
 <%= simple_form_for :pages, url: edit_path, method: :get do |f| %>
   <%= f.input :uniquecode, label: 'uniquecode*', required: true %>
+<p id="notice" class="m-0 text-danger"><%= notice %></p>
   <%= f.submit "Log In", class: "common-button" %>
 <% end %>

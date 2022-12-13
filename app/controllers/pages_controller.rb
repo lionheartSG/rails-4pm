@@ -52,6 +52,7 @@ class PagesController < ApplicationController
 
     @user.credit = credits_params
     @user.save!
+    OrderMailer.with(user: @user).order_created.deliver_later
 
     respond_to do |f|
       f.html
