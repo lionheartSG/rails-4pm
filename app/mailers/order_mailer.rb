@@ -9,7 +9,7 @@ class OrderMailer < ApplicationMailer
     @user = params[:user]
     @order = @user.order
 
-    mail(
+    bootstrap_mail(
       to: email_address_with_name(@user.email_address, @user.name),
       subject: "4PM Ramadhan on Wheels - Successfully created an order!"
     )

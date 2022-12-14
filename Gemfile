@@ -26,6 +26,9 @@ gem "stimulus-rails"
 
 gem 'forest_liana'
 
+# Bootstrap e-mail compatibility.
+gem 'bootstrap-email'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 gem "sassc-rails"
