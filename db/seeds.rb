@@ -97,7 +97,7 @@ Product.create(
 )
 
 Product.create(
-  name: "Instant Noodles(Curry)",
+  name: "Instant Noodles (Curry)",
   cost: 2.5,
   category: "Staples",
   description: "5 packets",
@@ -105,7 +105,7 @@ Product.create(
 )
 
 Product.create(
-  name: "Instant Noodles(Chicken)",
+  name: "Instant Noodles (Chicken)",
   cost: 2.5,
   category: "Staples",
   description: "5 packets",
