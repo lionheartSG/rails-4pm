@@ -1,36 +1,33 @@
 <body class="bg-red-100">
   <div class="container">
-    <img class="my-6 w-16" src="https://assets.bootstrapemail.com/logos/light/square.png" />
+    <!--- <img class="my-6 w-16" src="https://assets.bootstrapemail.com/logos/light/square.png" /> -->
+    <%= image_tag "Logo4.png", class: "my-6 w-16" %>
     <div class="space-y-4 mb-6">
-      <h1 class="text-4xl fw-800">Thanks for your order, Josh</h1>
-      <p>The estimated delivery time for your order is 6:10 PM - 6:20 PM. Track your order on the Hip Corp website.</p>
-      <a class="btn btn-red-500 rounded-full px-6 w-full w-lg-48" href="https://app.bootstrapemail.com/templates">Track Your Order</a>
+      <h1 class="text-4xl fw-800" style="color: #112A46;">Thanks for your order, <%= @user.name %></h1>
+      <p>Items selected are subject to availability. Alternative items of similar value may be provided instead.</p>
+      <p>Delivery date will be on DD MM YY (between 10am - 6pm). Unfortunately, no specific timing will be given. Please ensure that someone is home to receive the items.</p>
+      <!--- <a class="btn btn-red-500 rounded-full px-6 w-full w-lg-48" href="https://app.bootstrapemail.com/templates">Track Your Order</a> -->
     </div>
     <div class="card rounded-3xl px-4 py-8 p-lg-10 mb-6">
-      <h3 class="text-center">Receipt from HipCorp</h3>
-      <p class="text-center text-muted">Receipt #ABCD-EFGH</p>
+      <h3 class="text-center mb-3">Receipt from <br> 4PM Ramadan On Wheels 2023</h3>
+      <!--- <p class="text-center text-muted">Receipt #ABCD-EFGH</p> -->
       <table class="p-2 w-full">
         <tbody>
-          <tr>
-            <td>Cool Sunglasses</td>
-            <td class="text-right">$10.00</td>
-          </tr>
-          <tr>
-            <td>Trucker Hat</td>
-            <td class="text-right">$12.00</td>
-          </tr>
-          <tr>
-            <td>Sunflower Seeds</td>
-            <td class="text-right">$20.00</td>
-          </tr>
-          <tr>
-            <td class="fw-700 border-top">Amount paid</td>
-            <td class="fw-700 text-right border-top">$42.00</td>
-          </tr>
+          <tr class="m-2">
+            <th>Item</th>
+            <th>Description</th>
+            <th>Quantity</th>
+          <% @order.cart_items.each do |cart| %>
+            <tr>
+              <td><%= cart.product.name %></td>
+              <td><%= cart.product.description %></td>
+              <td><%= cart.quantity %></td>
+            </tr>
+            <% end %>
         </tbody>
       </table>
       <hr class="my-6">
-      <p>If you have any questions, contact us at <a href="https://bootstrapemail.com">HipCorp@example.com</a>.</p>
+      <p>If you have any questions, contact us via Whatsapp at 83003852</a>.</p>
     </div>
   </div>
 </body>
