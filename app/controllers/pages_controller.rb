@@ -47,12 +47,30 @@ class PagesController < ApplicationController
     CartItem.where(order: @user.order).destroy_all
 
     cart_item_params.each do |data|
-      CartItem.create(order: @user.order, product: Product.find(data['id'].to_i), quantity: data['quantity'].to_i) if data['quantity'].to_i > 0
+      CartItem.create(
+        order: @user.order,
+        product: Product.find(data['id'].to_i),
+        quantity: data['quantity'].to_i
+        ) if data['quantity'].to_i > 0
+    end
+
+    Summary.where(email_address: @user.email_address).destroy_all
+
+    CartItem.where(order: @user.order).each do |item|
+      Summary.create(
+        user: @user.name,
+        address: "#{@user.block} #{@user.street} #{@user.unit} #{@user.postal}",
+        handphone: @user.handphone,
+        email_address: @user.email_address,
+        product: item.product.name,
+        quantity: item.quantity
+      )
     end
 
     @user.credit = credits_params
     @user.save!
     OrderMailer.with(user: @user).order_created.deliver_later
+
 
     respond_to do |f|
       f.html
