@@ -303,7 +303,7 @@ Product.create(
 puts ''
 puts '*** Seeding database with users ***'
 
-filepath = "db/user.csv"
+filepath = "db/bene.csv"
 
 CSV.foreach(filepath, headers: :first_row) do |row|
   User.create(
