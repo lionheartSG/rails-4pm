@@ -306,15 +306,15 @@ puts '*** Seeding database with users ***'
 filepath = "db/bene.csv"
 
 CSV.foreach(filepath, headers: :first_row) do |row|
-  User.create(
+  User.create!(
     name: row['name'],
     block: row['block'],
     street: row['street'],
     unit: row['unit'],
     postal: row['postal'],
-    email_address: row['email_address'],
+    email_address: row['email address'].strip.downcase,
     uniquecode: row['uniquecode'],
-    handphone: row['handphone']
+    handphone: row['handphone'].gsub(' ', '').to_i
   )
 end
 
