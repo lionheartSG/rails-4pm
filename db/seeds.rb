@@ -10,6 +10,7 @@ require "csv"
 
 puts '*** Cleaning up products/users/cart_items ***'
 puts ''
+Order.destroy_all
 CartItem.destroy_all
 Product.destroy_all
 User.destroy_all
